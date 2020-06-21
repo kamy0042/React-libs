@@ -15,7 +15,7 @@ const triggerCss = css`
         height: 0.5em;
         border-top: solid 2px #333;
         border-right: solid 2px #333;
-        transform: rotate(135deg);
+        transform: rotate(45deg);
         transform-origin: center;
         display: block;
         margin-left: 1.5rem;
@@ -23,7 +23,7 @@ const triggerCss = css`
         transition-timing-function: cubic-bezier(0.43, 0.26, 0.72, 1.02);
     }
     &.open::after {
-        transform: rotate(45deg);
+        transform: rotate(135deg);
     }
 `;
 
