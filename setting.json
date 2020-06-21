@@ -1,0 +1,35 @@
+{
+    "eslint.nodePath": "./node_modules/eslint",
+    "eslint.packageManager": "npm",
+    "eslint.alwaysShowStatus": true,
+    "eslint.enable": true,
+    "editor.wordWrap": "on",
+    "terminal.integrated.rendererType": "dom",
+    "workbench.editor.showTabs": true,
+    "workbench.editor.enablePreview": false,
+    "editor.detectIndentation": false,
+    "prettier.semi": false,
+    "prettier.tabWidth": 4,
+    "editor.renderWhitespace": "boundary",
+    "editor.fontFamily": "JetBrains Mono, Menlo, Monaco, 'Courier New', monospace",
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Night Owl",
+    "sync.gist": "718d218d2e876fa63124426ca65112e4",
+    "editor.tabSize": 2,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false
+    },
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    "[typescript]": {
+        "editor.formatOnSave": false
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+}
