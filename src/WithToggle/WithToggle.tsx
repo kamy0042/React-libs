@@ -1,44 +1,6 @@
 import * as React from 'react';
 import { css } from '@emotion/core';
 
-// style
-// ----------------------------
-const triggerCss = css`
-    display: flex;
-    align-items: center;
-    :hover {
-        cursor: pointer;
-    }
-    &:after {
-        content: '';
-        width: 0.5em;
-        height: 0.5em;
-        border-top: solid 2px #333;
-        border-right: solid 2px #333;
-        transform: rotate(45deg);
-        transform-origin: center;
-        display: block;
-        margin-left: 1.5rem;
-        transition: 0.2s;
-        transition-timing-function: cubic-bezier(0.43, 0.26, 0.72, 1.02);
-    }
-    &.open::after {
-        transform: rotate(135deg);
-    }
-`;
-
-const contentsCss = css`
-    transform: scaleY(0);
-    transition: 0.2s;
-    transition-timing-function: cubic-bezier(0.3, 0.78, 0.92, 0.82);
-    transform-origin: top;
-    height: 0;
-    &.open {
-        transform: scaleY(1);
-        height: auto;
-    }
-`;
-
 // context
 //------------------------
 interface context {
@@ -91,3 +53,41 @@ export const WithToggleContents: React.FC = ({ children }) => {
         </div>
     );
 };
+
+// style
+// ----------------------------
+const triggerCss = css`
+    display: flex;
+    align-items: center;
+    :hover {
+        cursor: pointer;
+    }
+    &:after {
+        content: '';
+        width: 0.5em;
+        height: 0.5em;
+        border-top: solid 2px #333;
+        border-right: solid 2px #333;
+        transform: rotate(45deg);
+        transform-origin: center;
+        display: block;
+        margin-left: 1.5rem;
+        transition: 0.2s;
+        transition-timing-function: cubic-bezier(0.43, 0.26, 0.72, 1.02);
+    }
+    &.open::after {
+        transform: rotate(135deg);
+    }
+`;
+
+const contentsCss = css`
+    transform: scaleY(0);
+    transition: 0.2s;
+    transition-timing-function: cubic-bezier(0.3, 0.78, 0.92, 0.82);
+    transform-origin: top;
+    height: 0;
+    &.open {
+        transform: scaleY(1);
+        height: auto;
+    }
+`;
