@@ -2,7 +2,7 @@ import * as React from 'react';
 import { css } from '@emotion/core';
 
 // context
-//------------------------
+// ------------------------
 interface context {
     isOpen: boolean;
     currentClass: string;
@@ -23,22 +23,25 @@ const useToggleContext = () => {
             `WithToggle compound components cannot be rendered outside the WithToggle component`,
         );
     }
+
     return context;
 };
 
 // render
-//--------------------------
+// --------------------------
 export const WithToggle: React.FC = ({ children }) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const onClick = React.useCallback(() => setIsOpen(!isOpen), [isOpen]);
     const currentClass = isOpen ? 'open' : 'close';
 
     const value = React.useMemo(() => ({ isOpen, currentClass, onClick }), [isOpen]);
+
     return <toggleContext.Provider value={value}>{children}</toggleContext.Provider>;
 };
 
 export const WithToggleTrigger: React.FC = ({ children }) => {
     const { onClick, currentClass } = useToggleContext();
+
     return (
         <div role="button" onClick={onClick} className={currentClass} css={triggerCss}>
             {children}
@@ -47,6 +50,7 @@ export const WithToggleTrigger: React.FC = ({ children }) => {
 };
 export const WithToggleContents: React.FC = ({ children }) => {
     const { currentClass } = useToggleContext();
+
     return (
         <div className={currentClass} css={contentsCss}>
             {children}
