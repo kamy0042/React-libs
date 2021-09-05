@@ -27,37 +27,6 @@ const useToggleContext = () => {
     return context;
 };
 
-// render
-// --------------------------
-export const WithToggle: React.FC = ({ children }) => {
-    const [isOpen, setIsOpen] = React.useState(false);
-    const onClick = React.useCallback(() => setIsOpen(!isOpen), [isOpen]);
-    const currentClass = isOpen ? 'open' : 'close';
-
-    const value = React.useMemo(() => ({ isOpen, currentClass, onClick }), [isOpen]);
-
-    return <toggleContext.Provider value={value}>{children}</toggleContext.Provider>;
-};
-
-export const WithToggleTrigger: React.FC = ({ children }) => {
-    const { onClick, currentClass } = useToggleContext();
-
-    return (
-        <div role="button" onClick={onClick} className={currentClass} css={triggerCss}>
-            {children}
-        </div>
-    );
-};
-export const WithToggleContents: React.FC = ({ children }) => {
-    const { currentClass } = useToggleContext();
-
-    return (
-        <div className={currentClass} css={contentsCss}>
-            {children}
-        </div>
-    );
-};
-
 // style
 // ----------------------------
 const triggerCss = css`
@@ -95,3 +64,34 @@ const contentsCss = css`
         height: auto;
     }
 `;
+
+// render
+// --------------------------
+export const WithToggle: React.FC = ({ children }) => {
+    const [isOpen, setIsOpen] = React.useState(false);
+    const onClick = React.useCallback(() => setIsOpen(!isOpen), [isOpen]);
+    const currentClass = isOpen ? 'open' : 'close';
+
+    const value = React.useMemo(() => ({ isOpen, currentClass, onClick }), [isOpen]);
+
+    return <toggleContext.Provider value={value}>{children}</toggleContext.Provider>;
+};
+
+export const WithToggleTrigger: React.FC = ({ children }) => {
+    const { onClick, currentClass } = useToggleContext();
+
+    return (
+        <div role="button" onClick={onClick} className={currentClass} css={triggerCss}>
+            {children}
+        </div>
+    );
+};
+export const WithToggleContents: React.FC = ({ children }) => {
+    const { currentClass } = useToggleContext();
+
+    return (
+        <div className={currentClass} css={contentsCss}>
+            {children}
+        </div>
+    );
+};
